@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Thanganat 2026 | Rotary Vapi Navratri Mahotsav — Dance for a Cause</title>
-<meta name="description" content="Thanganat 2026 — Rotary Club of Vapi's Navratri Mahotsav. 9 nights of Garba, 11–19 October 2026, ROFEL College Ground, GIDC Vapi. Every night supports free dialysis and pediatric heart surgeries.">
+<meta name="description" content="Thanganat 2026 — Rotary Club of Vapi's Navratri Mahotsav. 9 nights of Garba, 11–19 October 2026, ROFEL College Ground, GIDC Vapi. Organised in support of the charitable work of Haria L.G. Rotary Hospital, Vapi.">
 <meta property="og:title" content="Thanganat 2026 | Rotary Vapi Navratri Mahotsav — Dance for a Cause">
 <meta property="og:description" content="9 Nights • 40,000 Beats • 1 Eternal Celebration. 11–19 October 2026, ROFEL College Ground, GIDC Vapi.">
 <meta property="og:image" content="media/og.jpg">
 <meta name="theme-color" content="#4a0f35">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<link rel="icon" type="image/png" href="media/logo.png">
 <script>document.documentElement.className='js'</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,7 +94,7 @@
   /* ================= SHARED UI ================= */
   .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.95rem 1.8rem; border-radius:999px; color:var(--wine-900); font:700 .82rem var(--sans); letter-spacing:.14em; text-transform:uppercase; text-decoration:none; border:0; cursor:pointer;
     background:linear-gradient(100deg,#ffe08a,#ffb703 55%,#ff9a1f); box-shadow:0 6px 22px rgba(255,159,28,.4); transition:transform .25s,box-shadow .25s; }
-  .btn:hover,.btn:focus-visible { transform:translate3d(0,-2px,0); box-shadow:0 10px 30px rgba(255,159,28,.55); outline:none; }
+  .btn:hover,.btn:focus-visible { transform:translate3d(0,-2px,0); box-shadow:0 10px 30px rgba(255,159,28,.55); }
   .btn.ghost { background:transparent; color:var(--hd,var(--ivory)); border:1.5px solid currentColor; box-shadow:none; }
   .btn.sm { padding:.6rem 1.1rem; font-size:.72rem; }
 
@@ -232,12 +235,38 @@
   footer { position:relative; z-index:1; background:var(--wine-950); color:var(--ivory); padding:3rem 0 2.2rem; }
   .f-grid { display:grid; gap:2rem; } @media (min-width:800px) { .f-grid { grid-template-columns:1.2fr 1fr 1fr; } }
   footer h3 { font:700 .74rem var(--sans); letter-spacing:.22em; text-transform:uppercase; color:var(--gold-soft); } footer li { margin-top:.5rem; color:rgba(255,244,220,.72); font-size:.95rem; } footer li a { text-decoration:none; } footer li a:hover { color:var(--gold-soft); }
-  .legal { margin-top:2.2rem; padding-top:1.3rem; border-top:1px solid rgba(255,214,130,.2); color:rgba(255,244,220,.5); font-size:.8rem; display:grid; gap:.3rem; }
+  .legal { margin-top:2.2rem; padding-top:1.3rem; border-top:1px solid rgba(255,214,130,.2); color:rgba(255,244,220,.78); font-size:.8rem; display:grid; gap:.3rem; }
 
   @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .pulse-line,.fw img,.marq div { animation:none !important; } .js .rv { transition:none; opacity:1; transform:none; } }
+
+  /* =====================================================================
+     ACCESSIBILITY & COMPLIANCE ADDITIONS (visual design unchanged)
+     ===================================================================== */
+  .skip { position:fixed; left:12px; top:-70px; z-index:200; padding:.7rem 1.2rem; border-radius:999px; background:#ffdf94; color:#2f0b23; font:700 .9rem var(--sans); text-decoration:none; transition:top .15s; }
+  .skip:focus { top:12px; }
+  :where(a,button,summary,[tabindex]):focus-visible { outline:3px solid var(--focus,#ffdf94); outline-offset:3px; }
+  .sec.light { --focus:#a3123f; }
+  .nav :focus-visible, .menu :focus-visible, footer :focus-visible, .lb :focus-visible, #stage :focus-visible { outline-color:#ffdf94; }
+  main:focus { outline:none; }
+  /* hidden-until-ready UI must not be reachable by keyboard / screen readers */
+  .nav { visibility:hidden; transition:opacity .4s,transform .4s,visibility 0s linear .4s; }
+  .nav.on { visibility:visible; transition:opacity .4s,transform .4s,visibility 0s; }
+  .menu { visibility:hidden; transition:opacity .25s,visibility 0s linear .25s; }
+  body.menu-open .menu { visibility:visible; transition:opacity .25s,visibility 0s; }
+  .marq-wrap { position:relative; }
+  .marq.paused div { animation-play-state:paused; }
+  .marq-btn { position:absolute; right:.7rem; top:50%; translate:0 -50%; width:40px; height:40px; border-radius:50%; border:1.5px solid var(--gold-soft); background:var(--wine-950); color:var(--gold-soft); cursor:pointer; display:grid; place-items:center; font:700 .7rem var(--sans); letter-spacing:0; z-index:2; }
+  .note { margin-top:.9rem; max-width:34rem; font-size:.84rem; line-height:1.5; color:var(--mu); }
+  .note a { color:var(--tx); font-weight:600; }
+  .legal { color:rgba(255,244,220,.78); }
+  .legal a { color:var(--gold-soft); }
+  .legal-links { display:flex; flex-wrap:wrap; gap:.4rem 1.4rem; margin-bottom:.4rem; font-weight:600; }
+  .legal-links a { text-decoration:underline; text-underline-offset:3px; }
+  .cap-o { background:rgba(26,5,20,.62); padding:.2rem .5rem; border-radius:6px; }
 </style>
 </head>
 <body>
+<a class="skip" href="#content">Skip to main content</a>
 
 <header class="nav" id="nav">
   <a class="brand" href="#about" aria-label="Thanganat 2026"><img src="media/logo.png" alt=""><span>Thanganat 2026</span></a>
@@ -245,15 +274,15 @@
     <a href="#cause">About &amp; Cause</a><a href="#schedule">Schedule</a><a href="#artists">Artists</a><a href="#ground">Ground</a>
     <a href="#competitions">Competitions</a><a href="#stalls">Stalls</a><a href="#gallery">Gallery</a><a href="#faqs">FAQs</a>
   </nav>
-  <div class="nav-r"><a class="btn sm" href="#passes">Passes</a><button class="burger" id="burger" aria-label="Menu"><i></i></button></div>
+  <div class="nav-r"><a class="btn sm" href="#passes">View Passes</a><button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i></button></div>
 </header>
-<div class="menu" id="menu">
+<nav class="menu" id="menu" aria-label="Full menu">
   <a href="#about">Home</a><a href="#cause">About &amp; Cause</a><a href="#schedule">Schedule</a><a href="#artists">Artists</a><a href="#ground">Ground</a>
   <a href="#competitions">Competitions</a><a href="#passes">Passes</a><a href="#stalls">Stalls &amp; Sponsors</a><a href="#gallery">Gallery</a><a href="#faqs">FAQs &amp; Rules</a>
-</div>
+</nav>
 
 <!-- ================= CINEMATIC SCROLL INTRO ================= -->
-<main id="track">
+<div id="track">
   <section id="stage" aria-label="Event intro">
     <h1 class="sr-only">The Thangnaat x Rotary Club of Vapi — Amazing 9 Nights, Celebrating Anni Special. 11 to 19 October 2026, ROFEL College Ground, GIDC Vapi.</h1>
     <img id="sbg" class="gpu" src="media/bg.jpg" alt="" decoding="async">
@@ -271,7 +300,7 @@
       <img id="logo" class="logo" alt="Thanganat 2026 — Rotary Navratri Mahotsav">
       <p class="t-sub"><span class="line">Rotary Club of Vapi presents</span></p>
       <div class="rule"></div>
-      <p class="i-guj guj">ઢોલ હજુ વાગ્યો નથી… પણ થનગનાટ શરૂ થઈ ગયો છે!</p>
+      <p lang="gu" class="i-guj guj">ઢોલ હજુ વાગ્યો નથી… પણ થનગનાટ શરૂ થઈ ગયો છે!</p>
     </div>
 
     <div id="p2" class="layer gpu" aria-hidden="true">
@@ -289,46 +318,46 @@
       <p class="pill"><b>11 – 19 Oct 2026</b><span>ROFEL College Ground, GIDC Vapi</span></p>
     </div>
 
-    <div id="cta" class="gpu"><a class="btn" href="#about">Explore the festival ↓</a></div>
+    <div id="cta" class="gpu"><a class="btn" href="#about">Explore the festival <span aria-hidden="true">↓</span></a></div>
   </section>
-</main>
+</div>
 
 <!-- ================= THE FESTIVAL ================= -->
-<div id="content">
+<main id="content" tabindex="-1">
   <div class="toran" style="position:relative;height:38px"></div>
 
   <section class="sec light" id="about">
     <div class="wrap">
       <p class="eyebrow rv">Rotary Club of Vapi cordially invites you to</p>
       <h2 class="big-t rv">Thanganat <span class="grad">2026</span></h2>
-      <p class="guj rv" style="font-size:clamp(1.4rem,4.2vw,2rem);margin-top:.5rem;color:var(--ac);font-weight:700">થનગનાટ</p>
+      <p lang="gu" class="guj rv" style="font-size:clamp(1.4rem,4.2vw,2rem);margin-top:.5rem;color:var(--ac);font-weight:700">થનગનાટ</p>
       <p class="sub rv">9 Nights • 40,000 Beats • 1 Eternal Celebration</p>
       <div class="meta rv"><span><b>Dates</b>11th – 19th October 2026</span><span><b>Time</b>8:00 PM onwards</span><span><b>Venue</b>ROFEL College Ground, GIDC, Vapi</span></div>
       <div class="status rv" id="status"></div>
-      <div class="row-btns rv"><a class="btn" href="#passes">Get your season pass ➔</a><a class="btn ghost" href="#schedule">Explore 9-night lineup ↓</a></div>
-      <p class="trust rv">100% proceeds support free dialysis &amp; pediatric heart surgeries</p>
+      <div class="row-btns rv"><a class="btn" href="#passes">See pass options <span aria-hidden="true">➔</span></a><a class="btn ghost" href="#schedule">See the 9-night schedule <span aria-hidden="true">↓</span></a></div>
+      <p class="trust rv">Organised in support of the charitable work of Haria L.G. Rotary Hospital, Vapi</p>
       <div class="ov">
         <div>
           <p class="eyebrow rv">What is Thanganat?</p>
-          <p class="copy rv"><b>Thanganat (થનગનાટ)</b> means the joyous, restless flutter of the heart before dancing. It is South Gujarat’s premier cultural and philanthropic Navratri festival, hosted in Vapi, Gujarat, under the stewardship of the <b>Rotary Club of Vapi</b> (Rotary International District 3060).</p>
-          <p class="copy rv"><b>The core distinction:</b> unlike commercial Garba events where profits go to event management firms, Thanganat is 100% philanthropic. Every rupee generated through visitor passes, VIP lounges, exhibitor stalls and corporate sponsorships directly funds life-saving medical procedures at <b>Haria L.G. Rotary Hospital</b> in Vapi.</p>
+          <p class="copy rv"><b>Thanganat (<span lang="gu">થનગનાટ</span>)</b> means the joyous, restless flutter of the heart before dancing. It is a cultural and charitable Navratri festival hosted in Vapi, Gujarat, organised by the <b>Rotary Club of Vapi</b> (Rotary International District 3060).</p>
+          <p class="copy rv"><b>The purpose:</b> Thanganat is organised as a charitable fundraising festival. Funds raised through passes, exhibitor stalls and sponsorships are intended to support the work of <b>Haria L.G. Rotary Hospital</b> in Vapi.</p>
         </div>
         <div>
-          <div class="quote rv"><p class="guj">આ નવરાત્રિ ગરબાના તાલે ફરી એકવાર</p><span>This Navratri, to the rhythm of Garba, once again!</span></div>
-          <div class="quote rv"><p class="guj">ઢોલ હજુ વાગ્યો નથી... પણ થનગનાટ શરૂ થઈ ગયો છે!</p><span>The Dhol hasn’t struck yet… but the excitement has already begun!</span></div>
-          <div class="quote rv"><p class="guj">Aeee.... હાલો!</p><span>Come on, let’s go!</span></div>
+          <div class="quote rv"><p lang="gu" class="guj">આ નવરાત્રિ ગરબાના તાલે ફરી એકવાર</p><span>This Navratri, to the rhythm of Garba, once again!</span></div>
+          <div class="quote rv"><p lang="gu" class="guj">ઢોલ હજુ વાગ્યો નથી... પણ થનગનાટ શરૂ થઈ ગયો છે!</p><span>The Dhol hasn’t struck yet… but the excitement has already begun!</span></div>
+          <div class="quote rv"><p lang="gu" class="guj">Aeee.... હાલો!</p><span>Come on, let’s go!</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="marq" aria-hidden="true"><div id="marq"></div></div>
+  <div class="marq-wrap"><div class="marq" id="marq-box" aria-hidden="true"><div id="marq"></div></div><button class="marq-btn" id="marq-btn" type="button" aria-pressed="false" aria-label="Pause scrolling banner"><span aria-hidden="true" id="marq-ic">❚❚</span></button></div>
 
   <section class="sec dark" id="numbers">
     <div class="wrap">
-      <p class="eyebrow rv">Event scale &amp; footprint</p>
+      <p class="eyebrow rv">Festival at a glance</p>
       <h2 class="h rv">The numbers behind <span class="grad">the nights</span></h2>
-      <p class="sub rv">From historical editions and official club records.</p>
+      <p class="sub rv">The 2026 festival in four numbers.</p>
       <div class="grid g4 two" id="stats"></div>
     </div>
   </section>
@@ -337,25 +366,11 @@
     <div class="wrap">
       <p class="eyebrow rv">The sacred cause</p>
       <h2 class="h rv">Garba with <span class="grad">a heart</span></h2>
-      <p class="sub rv">The soul of Thanganat lies in its direct social impact.</p>
-      <p class="copy rv"><b>Haria L.G. Rotary Hospital</b> is a renowned multi-specialty charitable hospital established by the Rotary Club of Vapi and Rotary Charitable Trust — the beneficiary of the festival.</p>
-      <div class="grid g3">
-        <article class="card rv"><span class="tag">Mission 01</span><h3 style="margin-top:.5rem">Free Dialysis Center</h3><p>Life-saving, zero-cost renal dialysis sessions for underprivileged patients suffering from end-stage kidney failure.</p></article>
-        <article class="card rv" style="--d:.08s"><span class="tag">Mission 02</span><h3 style="margin-top:.5rem">“Little Hearts” Initiative</h3><p>Sponsoring pediatric cardiac surgeries for infants and children born with congenital heart defects from economically weaker families who cannot afford multi-lakh hospital procedures.</p></article>
-        <article class="card rv" style="--d:.16s"><span class="tag">Reach</span><h3 style="margin-top:.5rem">1,000+ direct beneficiaries</h3><p>Supported annually solely from festival proceeds.</p></article>
-      </div>
-      <h3 class="sub-h rv">Philanthropy at a glance</h3>
-      <div class="grid g4 two" id="cause-stats" style="margin-top:1rem"></div>
-      <div class="card rv" style="margin-top:1.2rem">
-        <span class="tag">Transparent fund allocation</span>
-        <div class="donut-wrap" style="margin-top:1.2rem">
-          <div class="donut" role="img" aria-label="70% care, 20% ground and audio, 10% artists and safety"></div>
-          <ul class="leg">
-            <li><i style="background:#7a1850"></i><span><b>70%</b> — Free dialysis &amp; cardiac surgery care</span></li>
-            <li><i style="background:#ff9f1c"></i><span><b>20%</b> — Ground, security &amp; high-fidelity audio engineering</span></li>
-            <li><i style="background:#0b7a75"></i><span><b>10%</b> — Artist, safety &amp; police/paramedic infrastructure</span></li>
-          </ul>
-        </div>
+      <p class="sub rv">Thanganat is a fundraising festival with a purpose.</p>
+      <p class="copy rv"><b>Haria L.G. Rotary Hospital</b> is a multi-specialty charitable hospital in Vapi, established by the Rotary Club of Vapi through the Rotary Charitable Trust. It is the intended beneficiary of festival proceeds.</p>
+      <div class="grid g2">
+        <article class="card rv"><span class="tag">The hospital</span><h3 style="margin-top:.5rem">Free dialysis programme</h3><p>Haria L.G. Rotary Hospital runs a dialysis programme that provides dialysis to patients free of charge.</p></article>
+        <article class="card rv" style="--d:.08s"><span class="tag">The trust</span><h3 style="margin-top:.5rem">Rotary Charitable Trust</h3><p>Formed by the Rotary Club of Vapi to run and support the hospital and its charitable work.</p></article>
       </div>
     </div>
   </section>
@@ -367,7 +382,7 @@
       <p class="copy rv">A dedicated tribute to <b>Maa Ambe / Maa Durga</b> and the sacred tradition of Garba — symbolic of the womb and creation, represented by the illuminated perforated clay pot, the Garbi.</p>
       <div class="grid g2">
         <article class="card rv"><span class="tag">Every evening</span><h3 style="margin-top:.5rem">Nightly Maha Aarti — 8:15 PM sharp</h3><p>The sacred opening ritual, with felicitation of the guest of honor and lamp lighting (Deep Pragatya).</p></article>
-        <article class="card rv" style="--d:.1s"><span class="tag">Traditional ethos</span><h3 style="margin-top:.5rem">Authentic Raas-Garba</h3><p>Keeping Gujarat’s cultural purity intact, without commercial dilution.</p>
+        <article class="card rv" style="--d:.1s"><span class="tag">Traditional ethos</span><h3 style="margin-top:.5rem">Authentic Raas-Garba</h3><p>Traditional Raas-Garba steps and music in the spirit of Navratri.</p>
           <div class="chips"><span class="chip gold">Dodhiyu</span><span class="chip gold">Hinch</span><span class="chip gold">Sanedo</span><span class="chip gold">Dakla</span></div></article>
       </div>
     </div>
@@ -378,7 +393,7 @@
       <p class="eyebrow rv">9-night thematic schedule &amp; dress code</p>
       <h2 class="h rv">Nine nights, <span class="grad">nine colours</span></h2>
       <p class="sub rv">Swipe through the nights — each with its own Maa, colour and theme.</p>
-      <div class="days" id="days"></div>
+      <div class="days" id="days" tabindex="0" role="region" aria-label="Nine-night schedule, scroll sideways to see more"></div>
     </div>
   </section>
 
@@ -386,10 +401,8 @@
     <div class="wrap">
       <p class="eyebrow rv">The artist stage</p>
       <h2 class="h rv">6 faces. <span class="grad">1 musical powerhouse.</span></h2>
-      <p class="sub rv">Live music anchored by the celebrated band <b>Piyush Rajani &amp; The Fine Tuners</b>.</p>
+      <p class="sub rv">Live music by <b>Piyush Rajani &amp; The Fine Tuners</b>.</p>
       <div class="grid g3" id="artists-grid"></div>
-      <h3 class="sub-h rv">Signature set list</h3>
-      <ul class="tracks" id="tracks"></ul>
     </div>
   </section>
 
@@ -397,7 +410,7 @@
     <div class="wrap">
       <p class="eyebrow rv">Ground arena navigator</p>
       <h2 class="h rv">ROFEL College Ground, <span class="grad">Vapi</span></h2>
-      <p class="copy rv">Host campus: <b>ROFEL GIDC Campus (Rajju Shroff ROFEL University)</b>. ROFEL stands for the Rotary Foundation for Education and Learning, established in 1985 by visionary leaders of the Rotary Club of Vapi to pioneer higher education in South Gujarat.</p>
+      <p class="copy rv">Host venue: <b>ROFEL College Ground, GIDC Campus, Vapi</b>, Gujarat.</p>
       <div class="ground">
         <div class="arena rv" role="img" aria-label="Schematic of the ground: stage, central Garba ring, spectator pavilion and gates">
           <div class="a-stage">MEGA STAGE</div>
@@ -408,10 +421,9 @@
       </div>
       <h3 class="sub-h rv">Ground infrastructure</h3>
       <ul class="list rv">
-        <li>Expansive open-air arena with leveled wooden/carpeted Garba dancing rings designed to prevent injuries to bare feet and traditional footwear.</li>
-        <li>360-degree high-fidelity line-array sound systems tuned to eliminate echo while maintaining acoustic clarity across the perimeter.</li>
-        <li>Stadium-grade high-mast lighting and dynamic RGB stage illumination.</li>
-        <li>High-security boundary walls, multiple emergency exits, a dedicated ambulance bay and CCTV monitoring.</li>
+        <li>Open-air ground with a central Garba floor, a spectator pavilion and a main stage.</li>
+        <li>Sound and lighting arranged for the stage and the dance floor.</li>
+        <li>Entry and exit gates, first-aid and ambulance support are arranged by the organisers. Please follow the instructions of the volunteers and security staff.</li>
       </ul>
     </div>
   </section>
@@ -420,7 +432,7 @@
     <div class="wrap">
       <p class="eyebrow rv">Kheliya competitions &amp; awards</p>
       <h2 class="h rv">Dance. Shine. <span class="grad">Win.</span></h2>
-      <p class="sub rv">Premier judging panels every night — cash prizes, silver coins and prestigious trophies.</p>
+      <p class="sub rv">Judged every night — prizes and trophies as announced by the organisers.</p>
       <div class="grid g3">
         <article class="card rv"><span class="num">01</span><h3 style="margin-top:.5rem">Best Kheliya</h3><p>Male &amp; Female — footwork, stamina, grace and authentic traditional steps (Dodhiyu, Popat, Tran Taali).</p></article>
         <article class="card rv" style="--d:.06s"><span class="num">02</span><h3 style="margin-top:.5rem">Best Traditional Costume</h3><p>Male &amp; Female — authenticity of Kutch/Kathiawar embroidery, mirror work (Abhala), Kediyu, Chaniya Choli and traditional jewelry.</p></article>
@@ -460,10 +472,11 @@
       <div class="grid g2">
         <article class="card rv">
           <span class="tag">Stall tariff</span>
-          <p class="price grad" style="margin-top:.7rem">₹40,000<small>for all 9 days · 5,000+ daily visitors per stall</small></p>
-          <ul class="list"><li><b>10 premium stalls</b>, 10×10 ft, covered &amp; weather-proof, along the main spectator concourse</li><li>2 tables, 2 chairs and continuous electrical supply</li><li>Ideal for food brands, jewelry, traditional attire, FMCG, banking and real estate</li></ul>
+          <p class="price grad" style="margin-top:.7rem">₹40,000<small>for all 9 days</small></p>
+          <ul class="list"><li><b>10 premium stalls</b>, 10×10 ft, covered, along the main spectator concourse</li><li>2 tables, 2 chairs and continuous electrical supply</li><li>Ideal for food brands, jewelry, traditional attire, FMCG, banking and real estate</li></ul>
           <div class="stalls" aria-label="Stalls 1 to 10"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
-          <div class="row-btns" style="margin-top:1.3rem"><a class="btn sm" href="https://wa.me/919624880492" target="_blank" rel="noopener">Enquire on WhatsApp</a><a class="btn sm ghost" href="tel:+919624880492">+91 96248 80492</a></div>
+          <div class="row-btns" style="margin-top:1.3rem"><a class="btn sm" href="https://wa.me/919624880492" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp<span class="sr-only"> (opens in a new tab)</span></a><a class="btn sm ghost" href="tel:+919624880492">Call +91 96248 80492</a></div>
+          <p class="note">Messaging opens WhatsApp. Your number and message are shared with the organisers and handled by WhatsApp. We use them only to reply to your enquiry. See our <a href="privacy.html">Privacy Policy</a>.</p>
         </article>
         <article class="card rv" style="--d:.1s">
           <span class="tag">Sponsor recognition tiers</span>
@@ -479,13 +492,12 @@
       <p class="eyebrow rv">Media gallery</p>
       <h2 class="h rv">Moments from <span class="grad">the ground</span></h2>
       <p class="sub rv">Tap any photo or reel to open it. Follow <b>@thanganatbyrotaryvapi</b> for daily updates.</p>
+      <p class="note">Photos and videos were taken at Thanganat events. If you appear in one and want it removed, contact us — see the <a href="privacy.html#photos">Privacy Policy</a>.</p>
       <div class="photos" id="photos-grid"></div>
       <h3 class="sub-h rv">Reels</h3>
-      <div class="vids" id="vids"></div>
+      <div class="vids" id="vids" tabindex="0" role="region" aria-label="Reels, scroll sideways to see more"></div>
       <div id="wide"></div>
-      <div class="chips"><span class="chip gold">#Thanganat2026</span><span class="chip gold">#RotaryGarbaVapi</span><span class="chip gold">#DanceForAHeart</span><a class="chip" href="https://www.instagram.com/thanganatbyrotaryvapi/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      <h3 class="sub-h rv">Press &amp; media coverage</h3>
-      <p class="copy rv">Clippings from <b>Divya Bhaskar</b>, <b>Gujarat Samachar</b> and regional TV networks highlighting crowd turnouts and philanthropic milestones.</p>
+      <div class="chips"><span class="chip gold">#Thanganat2026</span><span class="chip gold">#RotaryGarbaVapi</span><span class="chip gold">#DanceForAHeart</span><a class="chip" href="https://www.instagram.com/thanganatbyrotaryvapi/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
     </div>
   </section>
 
@@ -495,8 +507,8 @@
       <h2 class="h rv">Before you <span class="grad">step in</span></h2>
       <div class="grid g3">
         <article class="card rv"><span class="tag">Attire</span><p style="margin-top:.5rem">Strict traditional attire is required for the central dancing floor — Chaniya Choli / Kediyu / Kurta-Dhoti.</p></article>
-        <article class="card rv" style="--d:.06s"><span class="tag">Entry</span><p style="margin-top:.5rem">Mandatory physical or digital pass scanning at RFID/barcode turnstiles.</p></article>
-        <article class="card rv" style="--d:.12s"><span class="tag">Zero tolerance</span><p style="margin-top:.5rem">Alcohol, tobacco and unauthorized items are strictly banned; round-the-clock police and private bouncer patrol.</p></article>
+        <article class="card rv" style="--d:.06s"><span class="tag">Entry</span><p style="margin-top:.5rem">A valid pass is required for entry. Passes may be checked at the gates.</p></article>
+        <article class="card rv" style="--d:.12s"><span class="tag">Zero tolerance</span><p style="margin-top:.5rem">Alcohol, tobacco and unauthorised items are not allowed inside the ground.</p></article>
       </div>
       <div id="faq-list" style="margin-top:1.6rem"></div>
     </div>
@@ -507,12 +519,12 @@
       <p class="eyebrow rv">Leadership &amp; credits</p>
       <h2 class="h rv">Organised by <span class="grad">Rotary Club of Vapi</span></h2>
       <div class="grid g2">
-        <article class="card rv"><span class="tag">Rotary Club of Vapi</span><h3 style="margin-top:.5rem">Rtn. Dhaval Patel</h3><p>President · Rotary International District 3060</p><p>With the Project Chair &amp; Organizing Committee Rotarians.</p></article>
+        <article class="card rv"><span class="tag">Organiser</span><h3 style="margin-top:.5rem">Rotary Club of Vapi</h3><p>A club of Rotary International District 3060.</p><p>Organised by the Project Chair and the Organising Committee of Rotarians.</p></article>
         <article class="card rv" style="--d:.1s"><span class="tag">Youth volunteers</span><h3 style="margin-top:.5rem">Rotaract Club of Vapi</h3><p>Volunteer teams managing entry lines, water booths and stage coordination.</p></article>
       </div>
     </div>
   </section>
-</div>
+</main>
 
 <div class="band" aria-hidden="true"></div>
 <footer>
@@ -520,19 +532,19 @@
     <div class="f-grid">
       <div><p class="brand" style="margin-bottom:.8rem"><img src="media/logo.png" alt=""><span>Thanganat 2026</span></p><p style="color:rgba(255,244,220,.72);max-width:26rem">Rotary Vapi Navratri Mahotsav — organised by the Rotary Club of Vapi, Rotary International District 3060.</p></div>
       <div><h3>Quick links</h3><ul><li><a href="#cause">About &amp; Cause</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#artists">Artists</a></li><li><a href="#ground">Ground</a></li><li><a href="#passes">Passes</a></li><li><a href="#stalls">Stalls &amp; Sponsors</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#faqs">FAQs</a></li></ul></div>
-      <div><h3>Contacts</h3><ul><li>Venue helpdesk: <a href="tel:+919099799922">+91 90997 99922</a> / <a href="tel:+919624880492">+91 96248 80492</a></li><li>ROFEL College Office, GIDC Campus, Vapi</li><li>Emergency: dial <a href="tel:112">112</a></li><li><a href="https://www.instagram.com/thanganatbyrotaryvapi/" target="_blank" rel="noopener">@thanganatbyrotaryvapi</a></li></ul></div>
+      <div><h3>Contacts</h3><ul><li>Venue helpdesk: <a href="tel:+919099799922">+91 90997 99922</a> / <a href="tel:+919624880492">+91 96248 80492</a></li><li>Organiser: Rotary Club of Vapi (Rotary International District 3060)</li><li>Pass office: ROFEL College Office, GIDC Campus, Vapi, Gujarat, India · Mon–Sat, 10 AM–4 PM</li><li>Emergency: dial <a href="tel:112">112</a></li><li><a href="https://www.instagram.com/thanganatbyrotaryvapi/" target="_blank" rel="noopener noreferrer">@thanganatbyrotaryvapi<span class="sr-only"> (opens in a new tab)</span></a></li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 Rotary Club of Vapi. All rights reserved.</span><span>Registered under Rotary International District 3060.</span><span>Designed &amp; crafted with devotion for Navratri 2026.</span></div>
+    <div class="legal"><nav class="legal-links" aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="cookies.html">Cookie Policy</a><a href="refunds.html">Refund Policy</a></nav><span>© 2026 Rotary Club of Vapi. Site content is the organiser’s unless credited otherwise.</span><span>A club of Rotary International District 3060.</span><span>Designed &amp; crafted with devotion for Navratri 2026.</span></div>
   </div>
 </footer>
 
 <!-- Gallery viewer -->
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Gallery viewer">
   <span class="lb-i" id="lb-i"></span>
-  <button class="lb-b lb-x" id="lb-x" aria-label="Close">×</button>
-  <button class="lb-b lb-p" id="lb-p" aria-label="Previous">‹</button>
+  <button class="lb-b lb-x" id="lb-x" type="button" aria-label="Close gallery viewer"><span aria-hidden="true">×</span></button>
+  <button class="lb-b lb-p" id="lb-p" type="button" aria-label="Previous photo or reel"><span aria-hidden="true">‹</span></button>
   <div class="lb-body" id="lb-body"></div>
-  <button class="lb-b lb-n" id="lb-n" aria-label="Next">›</button>
+  <button class="lb-b lb-n" id="lb-n" type="button" aria-label="Next photo or reel"><span aria-hidden="true">›</span></button>
   <p class="lb-cap" id="lb-cap"></p>
 </div>
 
@@ -552,10 +564,27 @@
     dandiya: BUILTIN.dandiya,                                   // first two sticks form the crossed pair
     introCards: PHOTO_IDS.slice(0,4).map(n => `media/t_${n}.jpg`)   // small photo cards inside the intro (images only: no video = no lag)
   };
+  const ALT = {
+    '003':'Aerial night view of the Thanganat ground, with a large circle of dancers lit up in the centre',
+    '031':'A young woman in an orange and red embroidered chaniya choli and blue headscarf dances while others move behind her',
+    '046':'A woman in a blue and red mirror-work chaniya choli mid-twirl, with a man in black and other dancers behind',
+    '061':'A crowd of dancers in colourful traditional dress in front of the stage, with a man in the foreground raising an arm',
+    '091':'Young dancers in red embroidered traditional outfits dancing in a group, with string lights behind',
+    '137':'A man in a white embroidered kurta dancing under a red-and-white striped canopy',
+    '168':'A woman in a red mirror-work blouse and skirt dancing, with a crowd of dancers and bunting behind her',
+    '182':'Wide view of hundreds of dancers on the ground under strings of lights and colourful bunting'
+  };
+  const REELS = [
+    'Reel 1 (video, no sound): dancers in colourful costumes under lights and bunting near the stage',
+    'Reel 2 (video, no sound): dancers on the ground beneath string lights, with a large canopy behind',
+    'Reel 3 (video, no sound): a smiling man in black dancing among the crowd',
+    'Reel 4 (video, no sound): a young dancer in a white embroidered outfit twirling',
+    'Reel 5 (video, no sound): dancers in bright traditional dress spinning close to the camera'
+  ];
   const GALLERY = [
-    ...PHOTO_IDS.map(n => ({ t:'img', src:`media/photo_${n}.jpg`, thumb:`media/t_${n}.jpg`, cap:'Garba at Thanganat' })),
-    ...[1,2,3,4,5].map(i => ({ t:'vid', src:`media/reel${i}.mp4`, thumb:`media/reel${i}_p.jpg`, cap:`Reel ${i}` })),
-    { t:'vid', src:'media/bg.mp4', thumb:'media/bg.jpg', cap:'Aerial highlight · footage by Sun Creators' }
+    ...PHOTO_IDS.map(n => ({ t:'img', src:`media/photo_${n}.jpg`, thumb:`media/t_${n}.jpg`, cap:ALT[n] })),
+    ...REELS.map((cap,i) => ({ t:'vid', src:`media/reel${i+1}.mp4`, thumb:`media/reel${i+1}_p.jpg`, cap })),
+    { t:'vid', src:'media/bg.mp4', thumb:'media/bg.jpg', cap:'Aerial highlight (video, no sound): night view of the packed Garba ground · footage by Sun Creators' }
   ];
 
   /* ===================== CONTENT DATA (from the Thanganat research dossier) ===================== */
@@ -571,23 +600,22 @@
     [9,'Mon 19 Oct','Maa Siddhidatri Puja (Maha Navami)','Royal Purple / Gold','#6a2c91','Mega Grand Finale & Awards']
   ];
   const ARTISTS = [
-    ['Piyush Rajani','The Power-Packed Singer','Runner-up on the inaugural season of India’s Got Talent (Colors TV); renowned for an electrifying vocal range blending traditional Gujarati folk with contemporary orchestration.'],
-    ['Rahul Shiriskar','The Power Behind The Beats','Percussion director, master of Dhol, Dholak and acoustic rhythm variations.'],
-    ['Pravin Salvi','The Sound Behind The Celebration','Lead keyboardist, synthesist and musical director.'],
-    ['Barkha Bali','The Dynamic Voice of Celebration','Powerhouse female lead vocalist known for fast-paced Sanedo, Titodo and traditional Dohas.'],
-    ['Vishal Singh','The Voice of Garba Vibes','High-energy folk and Bollywood-fusion vocalist.'],
-    ['Pallavi Patel','The Queen of Garba Beats','Acclaimed Gujarati folk vocalist with authentic devotional Mataji stutis and traditional Dakla renditions.']
+    ['Piyush Rajani','The Power-Packed Singer','Lead vocalist.'],
+    ['Rahul Shiriskar','The Power Behind The Beats','Percussion: Dhol and Dholak.'],
+    ['Pravin Salvi','The Sound Behind The Celebration','Keyboards and music direction.'],
+    ['Barkha Bali','The Dynamic Voice of Celebration','Female lead vocalist.'],
+    ['Vishal Singh','The Voice of Garba Vibes','Vocalist: folk and Bollywood-fusion.'],
+    ['Pallavi Patel','The Queen of Garba Beats','Gujarati folk vocalist.']
   ];
-  const TRACKS = [['Maa No Garbo','Devotional intro'],['Taal Ni Ramzat','Medium-tempo Dodhiyu'],['Sanedo Sanedo','High-energy climax'],['Dakla Fusion','Thunderous Dhol beat']];
   const ZONES = [
-    ['Central Garba Mandli (inner ring)','Registered Kheliyas only, on a carpeted dance floor.'],
-    ['Family & Spectator Pavilion (outer ring)','Elevated tiered bleachers for viewers.'],
-    ['VVIP & Dignitary Lounge','Cushioned seating, direct view of the stage, hospitality staff.'],
+    ['Central Garba Mandli (inner ring)','Dance floor for Kheliya pass holders.'],
+    ['Family & Spectator Pavilion (outer ring)','Seating and standing space for spectators.'],
+    ['VVIP & Dignitary Lounge','Reserved area for invited guests.'],
     ['The Mega Stage','Where Piyush Rajani & The Fine Tuners perform.'],
-    ['10 Commercial Stalls','Food zone, handicrafts, jewelers and sponsors.'],
+    ['10 Commercial Stalls','Food, handicrafts, jewellery and sponsor stalls.'],
     ['Entry / Exit Gates','Gate 1 — Kheliya pass holders · Gate 2 — General · Gate 3 — VIP & Media.'],
-    ['Amenities','RO drinking water stations, restrooms, first aid & ambulance station, lost & found.'],
-    ['Dedicated parking grounds','Zoned parking for 2-wheelers and 4-wheelers.']
+    ['Amenities','Drinking water, restrooms, first aid and lost & found, as arranged by the organisers.'],
+    ['Parking','Parking for 2-wheelers and 4-wheelers.']
   ];
   const PASSES = [
     ['Full 9-Night Season Pass','Kheliya (Player)','Unlimited entry to the central dance ring all 9 nights.'],
@@ -601,10 +629,10 @@
     ['What is the parking arrangement for cars and two-wheelers?','There are dedicated, zoned parking grounds for both 2-wheelers and 4-wheelers.'],
     ['Are children allowed inside the main playing ring?','Young dancers take part every night — there is a Prince & Princess of Thanganat award for kids under 14. For ring-entry rules, please ask at the helpdesk.'],
     ['How are competition winners selected each night?','Judges score on rhythm & synchrony with the Dhol beats (40%), traditional authenticity of footwork & spins (30%), costume authenticity & mirror work (20%), and grace, stamina & floor etiquette (10%).'],
-    ['Can out-of-town visitors book 1-day spectator tickets?','Yes — the Spectator Pass is available as a daily pass or a season pass.']
+    ['Can out-of-town visitors book 1-day spectator tickets?','Yes — the Spectator Pass is available as a daily pass or a season pass.'],
+    ['What is the refund policy?','Please read our <a href="refunds.html">Refund Policy</a>. For help, call the helpdesk: +91 90997 99922 / +91 96248 80492.']
   ];
-  const STATS = [[9,'','','Nights of Garba & Raas'],[40000,'','+','Visitors & participants'],[2000,'','+','Daily active players (Kheliyas)'],[2500,'','+','Daily spectators'],[50,'','+','Dedicated Rotarians'],[5250,'','','Volunteer man-hours'],[4000000,'₹','+','Annual budget deployed']];
-  const CAUSE = [[4000000,'₹','+','Hospital fund deployed'],[1000,'','+','Patients receiving free dialysis'],[150,'','+','Children gifted heart surgeries'],[5250,'','','Volunteer hours from Rotary Vapi']];
+  const STATS = [[9,'','','Nights of Garba & Raas'],[6,'','','Artists on the stage'],[10,'','','Exhibitor stalls'],[5,'','','Pass types']];
 
   /* ---------- helpers ---------- */
   const $ = id => document.getElementById(id);
@@ -621,18 +649,17 @@
   const D = (i,m=3) => `--d:${(i%m)*.07}s`;
   $('marq').innerHTML = ('<span class="f">Garba</span><span>Music</span><span class="f">Masti</span><span>Memories</span><span class="f">9 Nights</span><span>1 Epic Navratri</span>').repeat(6);
   const statHTML = arr => arr.map(([n,pre,suf,l],i) => `<div class="card stat rv${pre ? ' span2' : ''}" style="${D(i,4)}"><b class="grad cnt" data-n="${n}" data-p="${pre}" data-s="${suf}">${fmt(0,pre,suf)}</b><span>${l}</span></div>`).join('');
-  $('stats').innerHTML = statHTML(STATS); $('cause-stats').innerHTML = statHTML(CAUSE);
+  $('stats').innerHTML = statHTML(STATS);
   $('days').innerHTML = SCHEDULE.map(([n,d,maa,col,hex,th]) => `<article class="day" data-n="${n}" style="--c:${hex}"><div class="n">${n}</div><p class="d">${d}</p><h3>${maa}</h3><p class="col-n"><i class="sw"></i>${col}</p><p class="th">Theme: ${th}</p></article>`).join('');
   $('artists-grid').innerHTML = ARTISTS.map(([n,r,b],i) => `<article class="card artist rv" style="${D(i)}"><span class="num">${String(i+1).padStart(2,'0')}</span><h3>${n}</h3><p class="role">${r}</p><p>${b}</p></article>`).join('');
-  $('tracks').innerHTML = TRACKS.map(([t,d],i) => `<li class="rv" style="${D(i,2)}"><i>${i+1}</i><div><b>${t}</b><span>${d}</span></div></li>`).join('');
   $('zones').innerHTML = ZONES.map(([t,d],i) => `<div class="zone rv" style="${D(i,2)}"><i>${i+1}</i><div><b>${t}</b><span>${d}</span></div></div>`).join('');
   $('passes-grid').innerHTML = PASSES.map(([t,k,d],i) => `<article class="card rv" style="${D(i)}"><span class="tag">${k}</span><h3 style="margin-top:.5rem">${t}</h3><p>${d}</p></article>`).join('');
   $('faq-list').innerHTML = FAQS.map(([q,a]) => `<details class="faq rv"><summary>${q}</summary><p>${a}</p></details>`).join('');
   const nP = PHOTO_IDS.length;
-  $('photos-grid').innerHTML = GALLERY.slice(0,nP).map((g,i) => `<button class="gi" data-i="${i}" aria-label="Open photo ${i+1}"><img src="${g.thumb}" alt="${g.cap}" loading="lazy" decoding="async"></button>`).join('');
-  $('vids').innerHTML = GALLERY.slice(nP,nP+5).map((g,i) => `<button class="gi" data-i="${nP+i}" aria-label="Play ${g.cap}"><img src="${g.thumb}" alt="${g.cap}" loading="lazy" decoding="async"><span class="play"></span></button>`).join('');
+  $('photos-grid').innerHTML = GALLERY.slice(0,nP).map((g,i) => `<button type="button" class="gi" data-i="${i}"><img src="${g.thumb}" alt="${g.cap}" loading="lazy" decoding="async"><span class="sr-only">View larger</span></button>`).join('');
+  $('vids').innerHTML = GALLERY.slice(nP,nP+5).map((g,i) => `<button type="button" class="gi" data-i="${nP+i}"><img src="${g.thumb}" alt="${g.cap}" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span><span class="sr-only">Play video</span></button>`).join('');
   const aer = GALLERY[GALLERY.length-1];
-  $('wide').innerHTML = `<button class="gi wide" data-i="${GALLERY.length-1}" aria-label="Play aerial highlight"><img src="${aer.thumb}" alt="Aerial view of the ground" loading="lazy" decoding="async"><span class="play"></span><span class="cap-o">Aerial highlight · footage by Sun Creators</span></button>`;
+  $('wide').innerHTML = `<button type="button" class="gi wide" data-i="${GALLERY.length-1}"><img src="${aer.thumb}" alt="${aer.cap}" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span><span class="cap-o" aria-hidden="true">Aerial highlight · footage by Sun Creators</span><span class="sr-only">Play video</span></button>`;
 
   /* ---------- Gallery viewer (photos + reels open in one lightbox; video loads only when opened) ---------- */
   const lb = $('lb'), lbBody = $('lb-body'); let li = -1, tx = 0;
@@ -640,18 +667,29 @@
     li = (i + GALLERY.length) % GALLERY.length; const g = GALLERY[li]; lbBody.innerHTML = '';
     let n;
     if (g.t === 'img') { n = new Image(); n.src = g.src; n.alt = g.cap; }
-    else { n = document.createElement('video'); n.src = g.src; n.poster = g.thumb; n.controls = true; n.autoplay = true; n.loop = true; n.muted = true; n.playsInline = true; }
+    else { n = document.createElement('video'); n.src = g.src; n.poster = g.thumb; n.controls = true; n.autoplay = true; n.loop = true; n.muted = true; n.playsInline = true; n.setAttribute('aria-label', g.cap); }
     lbBody.appendChild(n); $('lb-cap').textContent = g.cap; $('lb-i').textContent = `${li+1} / ${GALLERY.length}`;
     const nx = GALLERY[(li+1)%GALLERY.length]; if (nx.t === 'img') new Image().src = nx.src;          // preload the next photo
   }
-  function openLB(i) { lb.hidden = false; document.documentElement.style.overflow = 'hidden'; showLB(i); }
-  function closeLB() { lb.hidden = true; lbBody.innerHTML = ''; document.documentElement.style.overflow = ''; }
+  let lbFrom = null;
+  function openLB(i) { lbFrom = document.activeElement; lb.hidden = false; document.documentElement.style.overflow = 'hidden'; showLB(i); $('lb-x').focus(); }
+  function closeLB() { lb.hidden = true; lbBody.innerHTML = ''; document.documentElement.style.overflow = ''; if (lbFrom && lbFrom.focus) lbFrom.focus(); }
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('.gi'); if (b && b.dataset.i != null) openLB(+b.dataset.i); });
   $('lb-x').addEventListener('click', closeLB); $('lb-p').addEventListener('click', () => showLB(li-1)); $('lb-n').addEventListener('click', () => showLB(li+1));
   lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
   lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
   lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) showLB(li + (dx < 0 ? 1 : -1)); }, {passive:true});
-  addEventListener('keydown', e => { if (lb.hidden) return; if (e.key === 'Escape') closeLB(); else if (e.key === 'ArrowRight') showLB(li+1); else if (e.key === 'ArrowLeft') showLB(li-1); });
+  addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLB(); else if (e.key === 'ArrowRight') showLB(li+1); else if (e.key === 'ArrowLeft') showLB(li-1);
+    else if (e.key === 'Tab') {   // keep keyboard focus inside the viewer
+      const f = [...lb.querySelectorAll('button,video[controls]')].filter(x => !x.disabled && x.offsetParent !== null);
+      if (!f.length) return; const a = f[0], z = f[f.length-1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+      else if (!lb.contains(document.activeElement)) { e.preventDefault(); a.focus(); }
+    }
+  });
 
   /* ---------- Reveal on scroll + counters ---------- */
   const reveal = new IntersectionObserver(es => es.forEach(e => {
@@ -664,8 +702,11 @@
     (function f(t) { const k = easeOut(clamp((t-t0)/1300)); n.textContent = fmt(T*k,P,S); if (k < 1) requestAnimationFrame(f); })(t0);
   }
 
-  $('burger').addEventListener('click', () => document.body.classList.toggle('menu-open'));
-  $('menu').addEventListener('click', e => { if (e.target.tagName === 'A') document.body.classList.remove('menu-open'); });
+  const setMenu = open => { document.body.classList.toggle('menu-open', open); $('burger').setAttribute('aria-expanded', String(open)); $('burger').setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); };
+  $('burger').addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  $('menu').addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) { setMenu(false); $('burger').focus(); } });
+  $('marq-btn').addEventListener('click', () => { const p = $('marq-box').classList.toggle('paused'); $('marq-btn').setAttribute('aria-pressed', String(p)); $('marq-btn').setAttribute('aria-label', p ? 'Play scrolling banner' : 'Pause scrolling banner'); $('marq-ic').textContent = p ? '▶' : '❚❚'; });
 
   /* ---------- Live status: countdown before the festival, tonight's night during it ---------- */
   const START = Date.parse('2026-10-11T20:00:00+05:30'), END = Date.parse('2026-10-19T23:59:59+05:30'), IST = 5.5*3600e3;
